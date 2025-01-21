@@ -43,6 +43,15 @@ abstract class BaseController
 
     protected function initialize()
     {
+        foreach (array_reverse(class_uses_recursive($this)) as $trait) {
+            if (method_exists($this, $method = 'initialize' . class_basename($trait))) {
+                $this->$method();
+            }
+        }
+
+        if (method_exists($this, $method = 'initialized')) {
+            $this->$method();
+        }
     }
 
     protected function middleware($middleware, ...$params)
