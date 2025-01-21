@@ -42,7 +42,8 @@
         "preferred-install": "dist",
         "platform-check": false,
         "platform": {
-            "ext-swoole": "4.6.0"
+            "ext-swoole": "4.6.0",
+            "ext-fileinfo": "1.0.0"
         }
     },
     "scripts": {
